@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.2/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.f9e19a40ae8c65991f6e766733057e82.js"
+  "/precache-manifest.64c666c9eb17b0b3ed7d166ee6de95e8.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "winery-new"});
