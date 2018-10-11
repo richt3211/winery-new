@@ -5,7 +5,7 @@ var serveStatic = require('serve-static');
 app = express();
 
 
-// app.use(express.static(path.join(__dirname, '../dist/')));
+app.use(express.static(path.join(__dirname, '../dist/')));
 
 
 var port = process.env.PORT || 5000;
