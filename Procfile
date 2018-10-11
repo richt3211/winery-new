@@ -1,2 +1,2 @@
 web: npm run build
-web: node serve/index.js
+web: node server/index.js
