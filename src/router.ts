@@ -1,24 +1,26 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from './views/Home.vue';
-
+import Claim from './views/Claim.vue';
+import Upgrade from './views/Upgrade.vue';
+import Admin from './views/Admin.vue';
 Vue.use(Router);
 
 export default new Router({
-  
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home,
+      path: '/claim',
+      name: 'claim',
+      component: Claim,
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
+      path: '/upgrade',
+      name: 'upgrade',
+      component: Upgrade,
     },
+    {
+      path: '/admin',
+      name: 'admin',
+      component: Admin,
+    }
   ],
 });

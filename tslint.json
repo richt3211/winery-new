@@ -1,12 +1,12 @@
 {
   "defaultSeverity": "warning",
   "extends": [
-    "tslint-config-standard",
+    "tslint-config-standard"
   ],
   "linterOptions": {
     "exclude": [
-      "node_modules/**",
-    ],
+      "node_modules/**"
+    ]
   },
   "rules": {
     "quotemark": [true, "single"],
@@ -14,8 +14,8 @@
     "interface-name": false,
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "no-consecutive-blank-lines": false,
+    "no-consecutive-blank-lines": false
   },
-  "tslint.enable": true,
+  "tslint.enable": true
 
 }

@@ -71,28 +71,30 @@
 
 <script lang='ts'>
 import api from '../helper/api';
-export default {
+import Vue from 'vue';
+export default Vue.extend({
     name: 'Navigation',
-    data () {
+    data() {
         return {
             userState: <string>'',
             userCounty: <string>'',
             userCity: <string>'',
-            filterState: <any>[],
-            filterCounty: <any>[],
-            filterCity: <any>[],
+            filterState: <object>{},
+            filterCounty: <object>{},
+            filterCity: <object>{},
             dialog: <boolean>false,
         }
     },
   created() {
+      console.log(this);
       const query = {}
       api.loadFilters(query)
           .then(states => this.filterState = states)
   },
   watch: {
 
-      userState: function (val){
-          const query = {
+      userState(val){
+          const query:object = {
               state: val
           }
           this.userCounty = '';
@@ -100,8 +102,8 @@ export default {
 
               .then(counties => this.filterCounty = counties);
       },
-      userCounty: function (val) {
-          const query = {
+      userCounty(val) {
+          const query:object = {
               state: this.userState,
               county: val
           }
@@ -111,17 +113,17 @@ export default {
       }
   },
   methods: {
-    filterCounties: function () {
+    filterCounties() {
         const query: object = {};
         api.loadFilters(query)
             .then(filters => this.filterCounty = filters)
     },
-    filterCities: function () {
+    filterCities() {
         const query: object = {};
         api.loadFilters(query)
             .then(filters => this.filterCity = filters)
     },
-    searchWineries: function () {
+    searchWineries() {
         if (!this.userState) {
             this.$router.push({
                 name: 'all',
@@ -137,7 +139,7 @@ export default {
         }
         if (this.userCounty) {
             this.$router.push({
-                name: 'county', 
+                name: 'county',
                 params: {
                     state: this.userState,
                     county: this.userCounty
@@ -146,7 +148,7 @@ export default {
         }
         if (this.userCity) {
             this.$router.push({
-                name: 'city', 
+                name: 'city',
                 params: {
                     state: this.userState,
                     county: this.userCounty,
@@ -156,11 +158,7 @@ export default {
         }
         console.log(this.dialog)
     },
-    clear: function () {
-        this.userState = ''
-        this.userCounty = ''
-        this.userCity = ''
-    }
+
     },
-}
+})
 </script>

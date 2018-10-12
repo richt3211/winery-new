@@ -24,9 +24,9 @@ const searchWineries = (search: string) => {
     return fetch(url)
         .then( res => res.json())
 }
-const addWinery = (winery: any)  =>
+const addWinery = (winery: any) => {
     //calling an http request on the home directory to add a winery based on the vue instance data on the form.
-    fetch('/wineries', {
+    return fetch('/wineries', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -34,7 +34,8 @@ const addWinery = (winery: any)  =>
 
         body: JSON.stringify(winery)
     })
-    .then(res => res.send())
+    .then(res => res.json())
+}
 const updateWinery = (winery: any) => {
     const form = new FormData()
     for (let key in winery) {
@@ -58,7 +59,6 @@ const loadFilters = (query: object) => {
         return res.json()
     })
 }
-        
 
 export default {
     loadFilters,
